@@ -1,21 +1,21 @@
 public class Node<T> {
-    private T dato;
-    private Node<T> SiguienteNode;
+    private T data;
+    private Node<T> nextNode;
 
     public Node(T data) {
-        this.dato = data;
-        this.SiguienteNode = null;
+        this.data = data;
+        this.nextNode = null;
     }
 
     public T getDato() {
-        return dato;
+        return data;
     }
 
-    public Node<T> getSiguienteNode() {
-        return SiguienteNode;
+    public Node<T> getNextNode() {
+        return nextNode;
     }
 
-    public void setSiguienteNode(Node<T> SiguienteNode) {
-        this.SiguienteNode = SiguienteNode;
+    public void setNextNode(Node<T> nextNode) {
+        this.nextNode = nextNode;
     }
 }
