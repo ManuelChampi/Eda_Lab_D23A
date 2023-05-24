@@ -19,3 +19,10 @@ public class Ejercicio01 {
         return Ain;
     }
 }
+
+/*
+run:
+A = [1, 2, 3, 4, 5]
+Ain = [5, 4, 3, 2, 1]
+BUILD SUCCESSFUL (total time: 0 seconds)
+*/
