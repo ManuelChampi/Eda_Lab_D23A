@@ -1,12 +1,12 @@
 public class List<T> {
-    private Node<T> inicio;
+    private Node<T> root;
 
     public void AgregarDatos(T dato) {
         Node<T> nuevoNode = new Node<>(dato);
-        if (inicio == null) {
-            inicio = nuevoNode;
+        if (root == null) {
+            root = nuevoNode;
         } else {
-            Node<T> ActualNode = inicio;
+            Node<T> ActualNode = root;
             while (ActualNode.getSiguienteNode() != null) {
                 ActualNode = ActualNode.getSiguienteNode();
             }
@@ -15,7 +15,7 @@ public class List<T> {
     }
 
     public void MostrarDatos() {
-        Node<T> ActualNode = inicio;
+        Node<T> ActualNode = root;
         while (ActualNode != null) {
             System.out.println(ActualNode.getDato());
             ActualNode = ActualNode.getSiguienteNode();
