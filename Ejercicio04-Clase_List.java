@@ -7,10 +7,10 @@ public class List<T> {
             root = nuevoNode;
         } else {
             Node<T> ActualNode = root;
-            while (ActualNode.getSiguienteNode() != null) {
-                ActualNode = ActualNode.getSiguienteNode();
+            while (ActualNode.getNextNode() != null) {
+                ActualNode = ActualNode.getNextNode();
             }
-            ActualNode.setSiguienteNode (nuevoNode);
+            ActualNode.setNextNode (nuevoNode);
         }
     }
 
@@ -18,7 +18,7 @@ public class List<T> {
         Node<T> ActualNode = root;
         while (ActualNode != null) {
             System.out.println(ActualNode.getDato());
-            ActualNode = ActualNode.getSiguienteNode();
+            ActualNode = ActualNode.getNextNode();
         }
     }
 }
