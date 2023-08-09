@@ -4,12 +4,13 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class PlagiarismChecker {
     private Set<String> database;
 
     public PlagiarismChecker() {
-        database = new HashSet<>();
+        database = new TreeSet<>();
     }
 
     public boolean loadFiles(String[] paths) {
@@ -38,28 +39,16 @@ public class PlagiarismChecker {
     }
 
     private void processAndAddToDatabase(String content) {
-        // Pre-procesamiento: Convertir a minúsculas y eliminar caracteres especiales
-        String processedContent = content.toLowerCase().replaceAll("[^a-z0-9\\s]", "");
-
-        // Dividir el contenido en palabras
-        String[] words = processedContent.split("\\s+");
-
-        // Agregar cada palabra al conjunto de la base de datos
+        String[] words = content.split("\\s+");
         for (String word : words) {
-            database.add(word);
+            database.add(word.toLowerCase());
         }
     }
 
     private boolean isPlagiarized(String userContent) {
-        // Pre-procesamiento: Convertir a minúsculas y eliminar caracteres especiales
-        String processedUserContent = userContent.toLowerCase().replaceAll("[^a-z0-9\\s]", "");
-
-        // Dividir el contenido del usuario en palabras
-        String[] userWords = processedUserContent.split("\\s+");
-
-        // Verificar si alguna palabra del contenido del usuario está en la base de datos
+        String[] userWords = userContent.split("\\s+");
         for (String word : userWords) {
-            if (database.contains(word)) {
+            if (database.contains(word.toLowerCase())) {
                 return true; // Plagio detectado
             }
         }
